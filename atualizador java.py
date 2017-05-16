@@ -5,7 +5,7 @@ from re import findall
 
 def progresso_download(block, read, total):
     porcentagem = round(block * read / total * 100)
-    print('{}% - {}Kb de {}Kb'.format(porcentagem, block * read, total), end='\r')
+    print('{}%'.format(porcentagem), end='\r')
 
 url = 'https://www.java.com/pt_BR/download/manual.jsp'
 
