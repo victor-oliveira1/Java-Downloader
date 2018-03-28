@@ -19,18 +19,24 @@ class MyHTMLParser(HTMLParser):
             pass
 
 def DownloadJava(numero):
-    buffer = 1024
+    buffer = 1000
     url = versoes[numero][1]
     req = urlopen(url)
+    tamanho = req.length
     nome = findall('jre[-\w\.]+', req.url)[0]
     print('Realizando o download do arquivo:', nome)
+    print('Tamanho:', '{:.2f}MB'.format(tamanho / 1000 / 1000))
     with open(nome, 'wb') as arquivo:
+        c = 0
         while True:
             tmp = req.read(buffer)
             if tmp:
                 arquivo.write(tmp)
+                c += 1
+                print('{:.1f}%'.format((c * buffer / tamanho) * 100), end='\r')
             else:
                 break
+        print()
 
 url = 'https://www.java.com/pt_BR/download/manual.jsp'
 download_page = urlopen(url).read().decode()
