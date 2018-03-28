@@ -19,13 +19,13 @@ class MyHTMLParser(HTMLParser):
             pass
 
 def DownloadJava(numero):
-    buffer = 1000
+    buffer = 1024 * 8
     url = versoes[numero][1]
     req = urlopen(url)
     tamanho = req.length
     nome = findall('jre[-\w\.]+', req.url)[0]
     print('Realizando o download do arquivo:', nome)
-    print('Tamanho:', '{:.2f}MB'.format(tamanho / 1000 / 1000))
+    print('Tamanho:', '{:.1f}MB'.format(tamanho / 1000 / 1000))
     with open(nome, 'wb') as arquivo:
         c = 0
         while True:
