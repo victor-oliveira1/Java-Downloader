@@ -1,5 +1,5 @@
-# atualizador-java
-Script python3 para realizar o download do instalador Java atualizado para Windows
+# Java-Downloader
+Script python3 para realizar o download do instalador Java atualizado.
 
-Basta executá-lo e o download do instalador offline mais recente será iniciado.
+Basta executá-lo e escolher a versão para download.
 Necessário Python 3.
